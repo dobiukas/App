@@ -16,6 +16,7 @@ from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 
+
 # home page view
 @login_required(login_url='login')
 def HomePageView(request):

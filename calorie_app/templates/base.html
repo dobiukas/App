@@ -2,7 +2,8 @@
 {% load static %}
 <html>
 <head>
-	<title>Calorie App</title>
+	<title>Calorie</title>
+    <sub><a class="log" href='{% url "logout" %}'>Logout</a></sub>
 	<meta charset="utf-8">
 
 
@@ -15,28 +16,28 @@
 
 </head>
 <body>
-  <a href={% url "home" %}><h1 class="logo text-center">Calorie </h1></a>
+  <a href='{% url "home" %}'><h1 class="logo text-center">Calorie app </h1></a>
 
 <nav id="navbar-primary" class="navbar navbar-expand-lg navbar-default active" role="navigation">
 
-    <!-- Brand and toggle get grouped for better mobile display -->
+
 
  <div class="container">
           <div class="navbar-header">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
           <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#resNav"  id='navbar-toggler'>
             <span class="navbar-toggler-icon" id="ham"></span>
           </button>
 
         </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="resNav">
             <ul class="navbar-nav justify-content-center">
               {% with url_name=request.resolver_match.url_name %}
-              <li class="nav-item"><a class="nav-link  {% if url_name == 'home' %} active{% endif %}" href={% url "home" %}>Home</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %} active{% endif %}" href={% url "profile" %}>Profile</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'add_food' %} active{% endif %}" href={% url "add_food" %}>Add Food</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'select_food' %} active{% endif %}" href={% url "select_food" %}>Select Food</a></li>
+              <li class="nav-item"><a class="nav-link  {% if url_name == 'home' %} active{% endif %}" href='{% url "home" %}'>Home</a></li>
+              <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %} active{% endif %}" href='{% url "profile" %}'>Profile</a></li>
+              <li class="nav-item"><a class="nav-link {% if url_name == 'add_food' %} active{% endif %}" href='{% url "add_food" %}'>Add Food</a></li>
+              <li class="nav-item"><a class="nav-link {% if url_name == 'select_food' %} active{% endif %}" href='{% url "select_food" %}'>Select Food</a></li>
               {% endwith %}
             </ul>
             </div>
