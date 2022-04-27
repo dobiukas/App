@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import SelectFoodForm, AddFoodForm, CreateUserForm, ProfileForm
+from .forms import SelectFoodForm, AddFoodForm, CreateUserForm, ProfileForm, CreateInForum, CreateInDiscussion
 from .models import *
 from datetime import timedelta
 from django.utils import timezone
@@ -188,3 +188,37 @@ def ProfilePage(request):
     context = {'form': form, 'food_items': food_items, 'records': records}
     return render(request, 'profile.html', context)
 
+###
+def home(request):
+    forums = forum.objects.all()
+    count = forums.count()
+    discussions = []
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+
+    context = {'forums': forums,
+               'count': count,
+               'discussions': discussions}
+    return render(request, 'home.html', context)
+
+
+def addInForum(request):
+    form = CreateInForum()
+    if request.method == 'POST':
+        form = CreateInForum(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'addInForum.html', context)
+
+
+def addInDiscussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'addInDiscussion.html', context)

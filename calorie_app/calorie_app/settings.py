@@ -40,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'calories.apps.CaloriesConfig',
 
-    "crispy_forms",
-
-
+     'crispy_forms',
     'django_filters'
 ]
 
@@ -128,4 +126,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-
+###
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

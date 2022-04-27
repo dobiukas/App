@@ -1,6 +1,7 @@
 from django.urls import path
-
-from .views import HomePageView,LoginPage,LogOutPage,select_food,add_food,RegisterPage,ProfilePage,update_food,delete_food
+from . import views
+from .views import HomePageView, LoginPage, LogOutPage, select_food, add_food, RegisterPage, ProfilePage, update_food, \
+	delete_food, addInForum, addInDiscussion
 
 urlpatterns = [
 	path('', HomePageView,name='home'),
@@ -12,5 +13,11 @@ urlpatterns = [
 	path('delete_food/<str:pk>/',delete_food,name='delete_food'),
 	path('register/',RegisterPage,name='register'),
 	path('profile/',ProfilePage,name='profile'),
+###
+
+
+	path('addInForum/',addInForum,name='addInForum'),
+    path('addInDiscussion/',addInDiscussion,name='addInDiscussion'),
+
 
 ]
