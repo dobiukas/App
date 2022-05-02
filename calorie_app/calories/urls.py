@@ -18,6 +18,4 @@ urlpatterns = [
 
 	path('addInForum/',addInForum,name='addInForum'),
     path('addInDiscussion/',addInDiscussion,name='addInDiscussion'),
-
-
 ]

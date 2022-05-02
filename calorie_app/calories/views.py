@@ -3,7 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import SelectFoodForm, AddFoodForm, CreateUserForm, ProfileForm, CreateInForum, CreateInDiscussion
 from .models import *
@@ -12,8 +11,6 @@ from django.utils import timezone
 from datetime import date
 from datetime import datetime
 from .filters import FoodFilter
-from django.contrib.auth.forms import User
-from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 
 
